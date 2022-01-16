@@ -1,11 +1,22 @@
+:root {
+    --fundo: #E3C298
+}
+
 body {
     margin: 0;
-    background: rgb(208, 255, 239);
+    background: var(--fundo);
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    color: #3e3433;
+    margin: 32px;
 }
 
 .main-game {
-    height: 100vh;
-    width: 100vw;
+    margin: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,14 +24,17 @@ body {
 
 .genius {
     display: grid;
-    grid-template-areas: 'verde vermelho' 'amarelo azul';
+    grid-template-areas:
+        'verde vermelho'
+        'amarelo azul';
     grid-gap: 10px;
     /* border: 1px solid white; */
-    background-color: rgb(208, 255, 239);
+    background-color: var(--fundo);
     border-radius: 100%;
-    margin: 1%;
+    /* margin: 1%; */
     width: 700px;
     height: 700px;
+    margin: 32px;
 }
 
 .blue {
@@ -45,6 +59,18 @@ body {
     grid-area: verde;
     background-color: green;
     border-top-left-radius: 100%;
+}
+
+footer {
+    margin: 16px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+a {
+    color: #3e3433;
+    text-decoration: none;
 }
 
 .selected {

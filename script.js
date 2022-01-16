@@ -26,14 +26,13 @@ let shuffleOrder = () => {
 
 // acende a próxima cor
 let lightColor = (element, number) => {
-    number = number * 500
+    number = number * 1000
     setTimeout(() => {
-        element.classList.add('.selected')
+        element.classList.add('selected')
+    }, number - 500)
+    setTimeout(() => {
+        element.classList.remove('selected')
     }, number - 250)
-
-    setTimeout(() => {
-        element.classList.remove('.selected')
-    })
 }
 
 // checa os botões clicacos
@@ -53,10 +52,10 @@ let checkOrder = () => {
 // click do usuário
 let click = (color) => {
     clickedOrder[clickedOrder.length] = color
-    creatColorElement(color).classList.add('.selected')
+    creatColorElement(color).classList.add('selected')
 
     setTimeout(() => {
-        creatColorElement(color).classList.remove('.selected')
+        creatColorElement(color).classList.remove('selected')
         checkOrder()
     }, 250)
 }
