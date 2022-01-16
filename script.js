@@ -12,6 +12,7 @@ const red = document.querySelector('.red')
 const green = document.querySelector('.green')
 const yellow = document.querySelector('.yellow')
 
+// cria ordem aleatória
 let shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random() * 4)
     order[order.length] = colorOrder
@@ -23,6 +24,7 @@ let shuffleOrder = () => {
     }
 }
 
+// acende a próxima cor
 let lightColor = (element, number) => {
     number = number * 500
     setTimeout(() => {
@@ -32,4 +34,30 @@ let lightColor = (element, number) => {
     setTimeout(() => {
         element.classList.remove('.selectd')
     })
+}
+
+// checa os botões clicacos
+let checkOrder = () => {
+    for(let i in clickedOrder) {
+        if(clickedOrder[i] != order[i]) {
+            lose()
+            break
+        }
+    }
+    if(clickedOrder.length == order.length) {
+        alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível`)
+        nextLevel()
+    }
+}
+
+// click do usuário
+let click = (color) => {
+    clickedOrder[clickedOrder.length] = color
+    creatColorElement(color).classList.add('.selected')
+
+    setTimeout(() => {
+        creatColorElement(color).classList.remove('.selected')
+    })
+
+    checkOrder()
 }
